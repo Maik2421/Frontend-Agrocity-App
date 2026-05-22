@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.permissions.*
+import com.moviles.agrocity.BuildConfig
 import com.moviles.agrocity.R
 import com.moviles.agrocity.network.GeminiClient
 
@@ -31,7 +32,7 @@ fun GeminiScreen() {
 
     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
     val geminiClient = remember {
-        GeminiClient(apiKey = "AIzaSyD_FIqvsukQPWJtkq1wVlrlL5TmMsdFHlg")
+        GeminiClient(apiKey = BuildConfig.GEMINI_API_KEY)
     }
 
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.TakePicturePreview()) {

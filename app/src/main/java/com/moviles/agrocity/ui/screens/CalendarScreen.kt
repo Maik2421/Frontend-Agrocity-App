@@ -21,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.android.gms.location.LocationServices
+import com.moviles.agrocity.BuildConfig
 import com.moviles.agrocity.R
 import com.moviles.agrocity.network.GeminiSugeridorClient
 import com.moviles.agrocity.network.WeatherViewModel
@@ -57,7 +58,7 @@ fun CalendarScreen() {
     var locationName by remember { mutableStateOf("Obteniendo ubicación...") }
     var sugerenciaCultivos by remember { mutableStateOf("Cargando sugerencias de cultivos...") }
 
-    val geminiClient = remember { GeminiSugeridorClient(apiKey = "AIzaSyD_FIqvsukQPWJtkq1wVlrlL5TmMsdFHlg") }
+    val geminiClient = remember { GeminiSugeridorClient(apiKey = BuildConfig.GEMINI_API_KEY) }
 
     var cultivosEmojis by remember { mutableStateOf<Map<String, String>>(emptyMap()) }
     var cultivosDetectados by remember { mutableStateOf<List<String>>(emptyList()) }

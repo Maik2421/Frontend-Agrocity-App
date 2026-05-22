@@ -1,5 +1,6 @@
 package com.moviles.agrocity.network
 
+import com.moviles.agrocity.BuildConfig
 import com.moviles.agrocity.models.WeatherResponse
 import com.moviles.agrocity.network.WeatherApiService.WeatherRetrofitInstance
 import kotlinx.coroutines.Dispatchers
@@ -8,7 +9,7 @@ import kotlinx.coroutines.withContext
 class WeatherRepository {
 
     private val api = WeatherRetrofitInstance.api
-    private val apiKey = "ac978883814f4411ac530137250606"
+    private val apiKey = BuildConfig.WEATHER_API_KEY
 
     suspend fun getCurrentWeather(lat: String, lon: String): Result<WeatherResponse> {
         val location = "$lat,$lon"

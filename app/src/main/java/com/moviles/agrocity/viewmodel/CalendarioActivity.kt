@@ -77,7 +77,7 @@ fun CalendarioContenido() {
     var locationName by remember { mutableStateOf("Obteniendo ubicación...") }
     var sugerenciaCultivos by remember { mutableStateOf("Cargando sugerencias de cultivos...") }
 
-    val geminiClient = remember { GeminiSugeridorClient(apiKey = "AIzaSyD_FIqvsukQPWJtkq1wVlrlL5TmMsdFHlg") }
+    val geminiClient = remember { GeminiSugeridorClient(apiKey = BuildConfig.GEMINI_API_KEY) }
 
     var cultivosEmojis by remember { mutableStateOf<Map<String, String>>(emptyMap()) }
     var cultivosDetectados by remember { mutableStateOf<List<String>>(emptyList()) }

@@ -26,6 +26,18 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        // Load API keys from local.properties
+        val localProperties = java.util.Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.inputStream())
+        }
+
+        val geminiApiKey = localProperties.getProperty("GEMINI_API_KEY", "")
+        val weatherApiKey = localProperties.getProperty("WEATHER_API_KEY", "")
+        buildConfigField("String", "GEMINI_API_KEY", "\"$geminiApiKey\"")
+        buildConfigField("String", "WEATHER_API_KEY", "\"$weatherApiKey\"")
     }
 
     buildTypes {
